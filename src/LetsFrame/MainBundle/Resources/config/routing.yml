@@ -1,3 +1,3 @@
 LetsFrameMainBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: LetsFrameMainBundle:Default:index }
+    pattern:  /
+    defaults: { _controller: LetsFrameMainBundle:Main:index }

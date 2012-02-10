@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="">
+        <link rel="stylesheet" href="{{ asset('bundles/letsframemain/css/reset.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/letsframemain/css/screen.css') }}" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="{{ asset('bundles/letsframemain/css/print.css') }}" type="text/css" media="print">    
+        <!--[if IE]><link rel="stylesheet" href="{{ asset('bundles/letsframemain/css/ie.css') }}" type="text/css" media="screen, projection"><![endif]-->
+        <link rel="stylesheet" href="{{ asset('bundles/letsframemain/css/main.css') }}" type="text/css" media="all" />
+        {% block css %}{% endblock %}
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        <title>{% block title %}LetsFrame{% endblock %}</title>
+    </head>
+
+    <body>
+    <!-- Prompt IE 6 users to install Chrome Frame.--> 
+  <!--[if lt IE 7]>
+  <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
+  <![endif]-->
+
+        <div class="container">
+        {% block content %}
+        {% endblock %}
+        </div>
+
+         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+         <script type="text/javascript" src="{{ asset('bundles/letsframemain/js/main.js') }}"></script>
+         <script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+    </body>
+</html>

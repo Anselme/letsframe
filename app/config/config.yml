@@ -58,3 +58,11 @@ swiftmailer:
 jms_security_extra:
     secure_controllers:  true
     secure_all_services: false
+
+# Imagine Configuration (thumbnails creation)
+avalanche_imagine:
+    filters:
+       exemple_thumbnails:
+           type:    thumbnail
+           options: { size: [90,90], mode: outbound}
+
