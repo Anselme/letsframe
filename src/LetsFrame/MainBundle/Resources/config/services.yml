@@ -1,0 +1,7 @@
+parameters:
+#    lets_frame_main.example.class: LetsFrame\MainBundle\Example
+
+services:
+#    lets_frame_main.example:
+#        class: %lets_frame_main.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

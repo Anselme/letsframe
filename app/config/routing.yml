@@ -1,3 +1,15 @@
+LetsFrameAdminBundle:
+    resource: "@LetsFrameAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+LetsFrameMainBundle:
+    resource: "@LetsFrameMainBundle/Resources/config/routing.yml"
+    prefix:   /
+
+#imagine bundle pour redimensionner les images
+_imagine:
+    resource: .
+    type:     imagine
 # Internal routing configuration to handle ESI
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
