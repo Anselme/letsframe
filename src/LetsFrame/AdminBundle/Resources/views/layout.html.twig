@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="{{ asset('bundles/letsframeadmin/css/bootstrap.min.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/letsframeadmin/css/admin.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/redmond/jquery-ui.css" type="text/css" media="all" />
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+
+        <title>{% block title %}Administration du site{% endblock %}</title>
+    </head>
+
+    <body>
+
+        <div class="container">
+            {% block login %}
+            {% endblock %}
+
+            {% if is_granted('ROLE_ADMIN') %}
+
+            {% block menu %}
+             {% include "LetsFrameAdminBundle:Admin:menu.html.twig" %}
+            {% endblock %}
+
+            {% block content %}
+            {% endblock %}
+
+            {% endif %}
+        </div>
+
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/i18n/jquery-ui-i18n.min.js"></script>
+        <script type="text/javascript" src="{{ asset('bundles/letsframeadmin/js/bootstrap.min.js') }}"></script>
+        <!--script type="text/javascript" src="{{ asset('bundles/letsframeadmin/js/bootstrap-dropdown.js') }}"></script-->
+        <script type="text/javascript" src="{{ asset('bundles/letsframeadmin/js/admin.js') }}"></script>
+    </body>
+</html>

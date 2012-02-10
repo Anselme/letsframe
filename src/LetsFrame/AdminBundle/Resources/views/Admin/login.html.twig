@@ -1,0 +1,30 @@
+{% extends "LetsFrameAdminBundle::layout.html.twig" %}
+{% block login %}
+{% if error %}
+<div class="">{{ error.message }}</div>
+{% endif %}
+
+<form action="{{ path('login_check') }}" method="post" class="form-horizontal">
+<fieldset>
+<legend>Accès au Back-Office</legend>
+
+<div class="control-group">
+<label class="control-label" for="username">Identifiant :</label>
+<div class="controls">
+<input type="text" id="username" name="_username" value="{{ last_username }}" />
+</div>
+</div>
+
+<div class="control-group">
+<label for="password">Mot de passe :</label>
+<div class="controls">
+<input type="password" id="password" name="_password" />
+</div>
+</div>
+
+<input type="hidden" name="_target_path" value="/admin/accueil" />
+
+<input type="submit" name="login" class="btn-primary" value="S'identifier"/>
+<fieldset>
+</form>
+{% endblock %}

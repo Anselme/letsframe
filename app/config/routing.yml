@@ -6,6 +6,15 @@ LetsFrameMainBundle:
     resource: "@LetsFrameMainBundle/Resources/config/routing.yml"
     prefix:   /
 
+#Security Admin
+login:
+    pattern: /login
+    defaults: {_controller: LetsFrameAdminBundle:Admin:login }
+login_check:
+    pattern: /login_check
+logout:
+    pattern: /logout
+
 #imagine bundle pour redimensionner les images
 _imagine:
     resource: .

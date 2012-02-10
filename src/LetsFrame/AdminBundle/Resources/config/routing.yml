@@ -1,3 +1,7 @@
+LetsFrameAdminBundle_login:
+    pattern:  /admin
+    defaults: { _controller: LetsFrameAdminBundle:Admin:login }
+
 LetsFrameAdminBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: LetsFrameAdminBundle:Default:index }
+    pattern:  /admin/accueil
+    defaults: { _controller: LetsFrameAdminBundle:Admin:index }
