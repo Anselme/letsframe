@@ -23,6 +23,8 @@ class AppKernel extends Kernel
 
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+            new LetsFrame\GalleryBundle\LetsFrameGalleryBundle(),
+            new LetsFrame\BiduleBundle\LetsFrameBiduleBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

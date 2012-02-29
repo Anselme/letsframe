@@ -1,0 +1,31 @@
+{% extends "LetsFrameAdminBundle::layout.html.twig" %}
+
+{% block content %}
+
+<h1>Bidule</h1>
+
+<table class="records_list zebra-striped">
+    <thead>
+        <tr>
+            <th>Bidule</th>
+            <th>Texte</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in paginator %}
+        <tr>
+            <td><a href="{{ path('bidule_edit', { 'id': entity.id }) }}">{{ entity.title }}</a></td>
+            <td>{{ entity.text }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div class="pagination">
+{#{ pagerfanta(paginator, 'adminView') }#}
+</div>
+
+<a href="{{ path('bidule_create') }}" class="btn primary">
+Saisir un nouveau bidule
+</a>
+{% endblock %}

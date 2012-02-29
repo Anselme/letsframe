@@ -1,3 +1,12 @@
+LetsFrameBiduleBundle:
+    resource: "@LetsFrameBiduleBundle/Controller"
+    type:     annotation
+    prefix:   /
+
+LetsFrameGalleryBundle:
+    resource: "@LetsFrameGalleryBundle/Resources/config/routing.yml"
+    prefix:   /
+
 LetsFrameAdminBundle:
     resource: "@LetsFrameAdminBundle/Resources/config/routing.yml"
     prefix:   /

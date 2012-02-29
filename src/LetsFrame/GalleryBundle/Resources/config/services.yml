@@ -1,0 +1,7 @@
+parameters:
+#    lets_frame_gallery.example.class: LetsFrame\GalleryBundle\Example
+
+services:
+#    lets_frame_gallery.example:
+#        class: %lets_frame_gallery.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

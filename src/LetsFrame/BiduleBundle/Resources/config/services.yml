@@ -1,0 +1,7 @@
+parameters:
+#    lets_frame_bidule.example.class: LetsFrame\BiduleBundle\Example
+
+services:
+#    lets_frame_bidule.example:
+#        class: %lets_frame_bidule.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

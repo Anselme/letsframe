@@ -1,0 +1,11 @@
+{% extends "LetsFrameBiduleBundle:Bidule:form.html.twig" %}
+
+  {% block action %}
+    <form action="{{ path('bidule_create') }}" method="post" {{ form_enctype(form) }}>
+  {% endblock %}
+  
+  {% block legend %}
+    Nouveau Bidule
+  {% endblock %}
+
+  {% block button %}Enregistrer le nouveau Bidule{% endblock %}
