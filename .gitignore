@@ -4,3 +4,4 @@
 /app/logs/*
 /vendor/
 /app/config/parameters.ini
+/src/LetsFrame/GalleryBundle/Ressources/public/images/uploads/*
