@@ -158,19 +158,20 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $image = $em->getRepository('LetsFrameCompaniesBundle:ImageCompanie')->find($id);
+        $image = $em->getRepository('LetsFrameGalleryBundle:Image')->find($id);
 
         if (!$image)
         {
-            throw $this->createNotFoundException('Unable to find ImageCompanie entity.');
+            throw $this->createNotFoundException('Unable to find Image entity.');
         }
 
-        $id_companie = $image->getCompanie()->getId();
+        $bidule = $em->getRepository('LetsFrameBiduleBundle:Bidule')->findByImageId($id);
+        $id_bidule = $bidule[0]->getId();
 
         $em->remove($image);
         $em->flush();
 
-        return $this->redirect($this->generateUrl('companie_edit', array('id' => $id_companie)));
+        return $this->redirect($this->generateUrl('bidule_edit', array('id' => $id_bidule)));
     }
 
 

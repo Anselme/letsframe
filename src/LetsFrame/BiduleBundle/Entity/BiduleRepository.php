@@ -16,4 +16,19 @@ class BiduleRepository extends EntityRepository
     {
         return $this->createQueryBuilder('n');
     }
+
+    public function findByImageId($id)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT a
+                FROM  LetsFrameBiduleBundle:Bidule a
+                JOIN a.gallery g
+                JOIN g.images i
+                WHERE i.id = :id
+                '
+            )->setParameter('id',$id)
+            ->getResult();
+    }
+
 }
