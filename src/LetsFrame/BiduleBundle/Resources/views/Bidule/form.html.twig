@@ -34,12 +34,12 @@
     {{ form_rest(form) }}
 
     <div class="form-actions">
-        <button type="submit" class="btn btn-primary">{% block button %}{% endblock %}</button>
+    <button type="submit" class="btn btn-primary">{% block button %}{% endblock %}</button>
+    <a href="{{ path('bidules') }}" class="btn">
+    Retour à la liste des Bidules
+    </a>
+    </div>
 </form>
-        <a href="{{ path('bidules') }}" class="btn">
-        Retour à la liste des Bidules
-        </a>
-        </div>
 
 {% block images %}
 {% endblock %}

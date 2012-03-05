@@ -62,7 +62,7 @@ jms_security_extra:
 # Imagine Configuration (thumbnails creation)
 avalanche_imagine:
     filters:
-       exemple_thumbnails:
+       thumbnail90x90:
            type:    thumbnail
            options: { size: [90,90], mode: outbound}
 

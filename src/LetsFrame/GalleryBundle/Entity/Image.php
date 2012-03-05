@@ -124,7 +124,7 @@ class Image
     protected function getUploadDir()
     {
         // get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
-        return 'uploads/images';
+        return 'bundles/letsframegallery/images/uploads';
     }
 
     /**

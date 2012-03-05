@@ -3,6 +3,9 @@
 namespace LetsFrame\BiduleBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+use LetsFrame\GalleryBundle\Entity\Gallery;
 
 /**
  * LetsFrame\BiduleBundle\Entity\Bidule
@@ -35,11 +38,20 @@ class Bidule
      */
     private $text;
 
+    /**
+     * @ORM\OneToOne(targetEntity="LetsFrame\GalleryBundle\Entity\Gallery", cascade={"persist"})
+     */
+    protected $gallery;
+
+    function __construct()
+    {
+        $this->gallery = new Gallery();
+    }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -59,7 +71,7 @@ class Bidule
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -79,10 +91,30 @@ class Bidule
     /**
      * Get text
      *
-     * @return text 
+     * @return text
      */
     public function getText()
     {
         return $this->text;
+    }
+
+    /**
+     * Set gallery
+     *
+     * @param LetsFrame\GalleryBundle\Entity\Gallery $gallery
+     */
+    public function setGallery(\LetsFrame\GalleryBundle\Entity\Gallery $gallery)
+    {
+        $this->gallery = $gallery;
+    }
+
+    /**
+     * Get gallery
+     *
+     * @return LetsFrame\GalleryBundle\Entity\Gallery
+     */
+    public function getGallery()
+    {
+        return $this->gallery;
     }
 }

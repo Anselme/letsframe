@@ -11,41 +11,36 @@
 
 {% block button %}Enregistrer les modifications{% endblock %}
 
-{#% block images %}
+{% block images %}
 
 <div class="page-header">
 <h2>Galerie d'images</h2>
 </div>
 
-<!--form action="{{ path('bidule_edit', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_image_form) }}>
+<form action="{{ path('bidule_edit', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_image_form) }} class="form-horizontal">
 {{ form_errors(edit_image_form) }}
-<fieldset>
-<div class="clearfix">
+<div class="control-group">
 {{ form_label(edit_image_form.image) }}
-<div class="input">
 {{ form_errors(edit_image_form.image) }}
+<div class="controls">
 {{ form_widget(edit_image_form.image) }}
 </div>
 </div>
 
 {{ form_rest(edit_image_form) }}
-<button type="submit" class="btn primary">Ajouter l'image</button>
-</fieldset>
-<div class="clearfix">
+<div class="form-actions">
+<button type="submit" class="btn btn-primary">Ajouter l'image</button>
+</div>
 
-{% if entity.images %}
-{% for image in entity.images %}
-<img src="{{ image.getWebPath  | apply_filter('bidule_thumbnail') }}" width="84"/>
+{% for image in entity.gallery.images %}
+<img src="{{ image.getWebPath  | apply_filter('thumbnail90x90') }}" width="90"/>
 <a href="{{ path('image_delete', { 'id':image.id}) }}" class="confirmimg">
 <img src="{{ asset('bundles/letsframemain/images/icons/cancel.png')}}" alt="Supprimer cette image">
 </a>
 {% endfor %}
-<div class="clearfix"></div>
-{% endif %}
 
-</div>
-</form-->
-{% endblock %#}
+</form>
+{% endblock images %}
 
 
   {% block delete %}

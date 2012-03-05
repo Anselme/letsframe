@@ -14,6 +14,9 @@ use Pagerfanta\Adapter\DoctrineORMAdapter;
 use LetsFrame\BiduleBundle\Entity\Bidule;
 use LetsFrame\BiduleBundle\Form\BiduleType;
 
+use LetsFrame\GalleryBundle\Entity\Gallery;
+use LetsFrame\GalleryBundle\Entity\Image;
+use LetsFrame\GalleryBundle\Form\ImageType;
 
 /**
  * Bidule controller.
@@ -63,8 +66,7 @@ class DefaultController extends Controller
                 $em->persist($entity);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('bidules' ));
-
+                return $this->redirect($this->generateUrl('bidule_edit', array('id' => $entity->getId()) ));
             }
         }
 
@@ -94,30 +96,33 @@ class DefaultController extends Controller
         $editForm   = $this->createForm(new BiduleType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        /*
         //Images des bidule
-        $imageEntity = new ImageCompanie();
-        $editImageForm = $this->createForm(new ImageCompanieType(), $imageEntity);
-         */
+        $imageEntity = new Image();
+        $editImageForm = $this->createForm(new ImageType(), $imageEntity);
+
         $request = $this->getRequest();
 
         if ($request->getMethod() == 'POST')
         {
 
-            //update Companie ou Image ou fileUpload ?
-            if($request->request->get('lapaperie_companiesbundle_imagecompanietype'))
+            //update Image ?
+            if($request->request->get('letsframe_gallerybundle_imagetype'))
             {
                 $editImageForm->bindRequest($request);
 
                 if ($editImageForm->isValid())
                 {
-                    $imageEntity->upload($entity);
+                    $imageEntity->upload();
+                    $imageEntity->setGallery($entity->getGallery());
+
                     $em->persist($imageEntity);
                     $em->flush();
 
                     return $this->redirect($this->generateUrl('bidule_edit', array('id' => $id)));
                 }
             }
+
+            //update Bidule
             else
             {
 
@@ -133,10 +138,13 @@ class DefaultController extends Controller
             }
         }
 
+         //sans cette ligne, twig ne voit pas les images de l'entité !?
+        $images = $entity->getGallery()->getImages();
+
         return array(
             'entity'      => $entity,
             'form'   => $editForm->createView(),
-            //'edit_image_form'   => $editImageForm->createView(),
+            'edit_image_form'   => $editImageForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
@@ -150,7 +158,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $image = $em->getRepository('LapaperieCompaniesBundle:ImageCompanie')->find($id);
+        $image = $em->getRepository('LetsFrameCompaniesBundle:ImageCompanie')->find($id);
 
         if (!$image)
         {
