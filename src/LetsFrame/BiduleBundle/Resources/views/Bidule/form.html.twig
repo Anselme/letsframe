@@ -1,39 +1,45 @@
 {% extends "LetsFrameAdminBundle::layout.html.twig" %}
 
-{% block content %}
+{# le block active_menu indique au menu quelle est la page courante #}
+{% block active_menu %}bidules{% endblock %}
 
-  {% block action %}
-  {% endblock %}
+{% block content %}
 
 <div class="page-header">
 <h2>{% block legend %}{% endblock %}</h2>
 </div>
 
-    {{ form_errors(form) }}
-<fieldset>
+  {% block action %}
+  {# emplacement du tag <form ...> #}
+  {% endblock %}
 
-    <div class="clearfix">
-    {{ form_label(form.title, 'Bidule') }}
-    <div class="input">
+    {{ form_errors(form) }}
+
+    <div class="control-group">
+    {{ form_label(form.title, 'Bidule', { 'attr': {'class': 'control-label'}}) }}
     {{ form_errors(form.title) }}
-    {{ form_widget(form.title) }}
+      <div class="controls">
+      {{ form_widget(form.title, { 'attr': {'placeholder': 'Saisir le titre du bidule...'}} ) }}
+      </div>
     </div>
-    </div>
-    <div class="clearfix">
-    {{ form_label(form.text, 'Contenu') }}
-    <div class="input">
+
+   <div class="control-group">
+    {{ form_label(form.text, 'Contenu', { 'attr': {'class': 'control-label'}}) }}
     {{ form_errors(form.text) }}
-    {{ form_widget(form.text, { 'attr': {'class': 'editor'} } ) }}
-    </div>
+      <div class="controls">
+      {{ form_widget(form.text, { 'attr': {'class': 'editor'} } ) }}
+      </div>
     </div>
 
     {{ form_rest(form) }}
-</fieldset>
-        <button type="submit" class="btn primary">{% block button %}{% endblock %}</button>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{% block button %}{% endblock %}</button>
+</form>
         <a href="{{ path('bidules') }}" class="btn">
         Retour à la liste des Bidules
         </a>
-</form>
+        </div>
 
 {% block images %}
 {% endblock %}

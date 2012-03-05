@@ -1,13 +1,21 @@
 {% extends "LetsFrameAdminBundle::layout.html.twig" %}
+ 
+{# le block active_menu indique au menu quelle est la page courante #}
+{% block active_menu %}bidules{% endblock %}
 
 {% block content %}
 
-<h1>Bidule</h1>
+<div class="page-header">
+<h1>
+Bidule
+<small>Liste de Bidules</small>
+</h1>
+</div>
 
-<table class="records_list zebra-striped">
+<table class="table table-bordered table-striped table-condensed">
     <thead>
         <tr>
-            <th>Bidule</th>
+            <th>#</th>
             <th>Texte</th>
         </tr>
     </thead>
@@ -25,7 +33,7 @@
 {#{ pagerfanta(paginator, 'adminView') }#}
 </div>
 
-<a href="{{ path('bidule_create') }}" class="btn primary">
+<a href="{{ path('bidule_create') }}" class="btn btn-primary">
 Saisir un nouveau bidule
 </a>
 {% endblock %}

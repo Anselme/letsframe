@@ -2,7 +2,7 @@
 
 
 {% block action %}
-<form action="{{ path('bidule_edit', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
+<form action="{{ path('bidule_edit', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
 {% endblock %}
 
 {% block legend %}
@@ -50,10 +50,10 @@
 
   {% block delete %}
   <div class="row">
-    <div class="span5 offset11">
-      <form action="{{ path('bidule_delete', { 'id': entity.id }) }}" method="post">
+    <div class="span">
+      <form action="{{ path('bidule_delete', { 'id': entity.id }) }}" method="post" class="well">
         {{ form_widget(delete_form) }}
-      <button type="submit" class="btn danger confirm">Supprimer ce Bidule</button>
+      <button type="submit" class="btn btn-danger confirm">Supprimer ce Bidule</button>
       </form>
     </div>
   </div>

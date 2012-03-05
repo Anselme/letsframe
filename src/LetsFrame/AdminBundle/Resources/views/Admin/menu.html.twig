@@ -3,13 +3,13 @@
                 <div class="container">
                     <a href="#" class="brand">Administration</a>
                     <ul class="nav">
-                        <li class="active">
-                        <a href="">Accueil</a>
+                        <li class="{{ current == '' ? 'active' : ''}}">
+                        <a href="{{ path('LetsFrameAdminBundle_homepage') }}">Accueil</a>
                         </li>
-                        <li class="">
+                        <li class="{{ current == 'bidules' ? 'active' : ''}}">
                         <a href="{{path('bidules')  }}">Bidules</a>
                         </li>
-                        <li class="">
+                        <li class="{{ current == 'images' ? 'active' : ''}}">
                         <a href="">Galeries d'images</a>
                         </li>
 

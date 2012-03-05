@@ -1,7 +1,7 @@
 {% extends "LetsFrameBiduleBundle:Bidule:form.html.twig" %}
 
   {% block action %}
-    <form action="{{ path('bidule_create') }}" method="post" {{ form_enctype(form) }}>
+    <form action="{{ path('bidule_create') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
   {% endblock %}
   
   {% block legend %}

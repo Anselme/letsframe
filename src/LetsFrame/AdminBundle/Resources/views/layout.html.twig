@@ -19,10 +19,13 @@
             {% if is_granted('ROLE_ADMIN') %}
 
             {% block menu %}
-             {% include "LetsFrameAdminBundle:Admin:menu.html.twig" %}
+            {# le block active_menu permet de mettre la classe 'active' dans le menu de la page courante #}
+             {% include "LetsFrameAdminBundle:Admin:menu.html.twig" with {"current": block('active_menu')}  %}
             {% endblock %}
 
+
             {% block content %}
+            Page d'accueil du back office
             {% endblock %}
 
             {% endif %}

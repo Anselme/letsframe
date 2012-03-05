@@ -167,7 +167,7 @@ class DefaultController extends Controller
 
 
     /**
-     * Deletes a Companie entity.
+     * Deletes a Bidule entity.
      *
      * @Route("/{id}/delete", name="bidule_delete")
      * @Method("post")
